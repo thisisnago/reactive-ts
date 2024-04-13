@@ -1,10 +1,10 @@
 import React from "react";
 
-interface ToDoListProps {
+interface TodoListProps {
     items: {id: string, text: string}[];
 }
 
-const ToDoList = ({ items }: ToDoListProps) => {
+const TodoList = ({ items }: TodoListProps) => {
 
     return (
         <ul>
@@ -15,4 +15,4 @@ const ToDoList = ({ items }: ToDoListProps) => {
     );
 };
 
-export default ToDoList;
+export default TodoList;

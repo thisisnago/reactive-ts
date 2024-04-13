@@ -1,12 +1,19 @@
 import React from "react";
 
-import ToDoList from "./components/ToDoList";
+import TodoList from "./components/TodoList";
+import NewTodo from "./components/NewTodo";
 
 function App() {
     const todos = [{ id: "t1", text: "Finish the course" }];
+
+    const todoAddHandler = (text: string) => {
+        console.log(text);
+    }
+    
     return (
         <div className="App">
-            <ToDoList items={todos} />
+            <NewTodo onAddTodo={todoAddHandler} />
+            <TodoList items={todos} />
         </div>
     );
 }
