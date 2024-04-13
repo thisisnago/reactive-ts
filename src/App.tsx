@@ -7,13 +7,17 @@ function App() {
     const [todos, setTodos] = useState<Todo[]>([]);
 
     const todoAddHandler = (text: string) => {
-        setTodos([{id: Math.random().toString(), text: text}]);
-    }
-    
+        setTodos((prevTodos) => [...prevTodos, { id: Math.random().toString(), text: text }]);
+    };
+
+    const todoDeleteHandler = (todoId: string) => {
+        setTodos(prevTodos => prevTodos.filter(todo => todo.id !== todoId));
+    };
+
     return (
         <div className="App">
-            <NewTodo onAddTodo={todoAddHandler} />
-            <TodoList items={todos} />
+            <NewTodo onAddTodo={todoAddHandler}/>
+            <TodoList items={todos} todoDeleteHandler={todoDeleteHandler} />
         </div>
     );
 }
